@@ -1,0 +1,28 @@
+{
+  "name": "rating-restaurant",
+  "version": "1.0.0",
+  "description": "Project in course backend 1",
+  "main": "index.js",
+  "scripts": {
+    "client": "nodemon ./client/client.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "node": "^13.5.0",
+    "nodemon": "^2.0.2",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yde13/Rating-restaurant.git"
+  },
+  "author": "Philip Lagergren Ydehed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yde13/Rating-restaurant/issues"
+  },
+  "homepage": "https://github.com/yde13/Rating-restaurant#readme"
+}
