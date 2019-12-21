@@ -1,0 +1,64 @@
+body{
+    background-image: linear-gradient(grey, white);
+    background-repeat: no-repeat;
+    width: 100%;
+
+}
+
+.gridcontainer{
+    width: 100%;
+}
+
+.loginbox{
+    padding: 0;
+  margin: 0;
+  list-style: none;
+  height: 400px;
+    width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10%;
+  border: 2px solid black;
+  margin-left: 27%;
+  border-radius: 10px;
+}
+
+.container{
+    text-align: center;
+    
+}
+
+.input{
+  
+}
+
+h1{
+    text-align: center;
+}
+
+#name{
+    width: 300px;
+    
+    border-radius: 5px;
+}
+
+#password{
+    margin-top: 40px;
+    width: 98%;
+    border-radius: 5px;
+
+}
+
+#submit{
+    height: 20px;
+    width: 100px;
+    margin-left: 33%;
+    margin-top: 40px;
+    border-radius: 5px;
+
+}
+
+#text{
+    text-align: center;
+}
