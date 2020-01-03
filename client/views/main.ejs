@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet"  href="/style/style.css">
+
+</head>
+<body>
+    <h3>Welcome </h3>
+    <form action="/login" method="POST">
+        <button type="submit">Log Out</button>
+      </form>
+    <h1>What are you looking for?</h1>
+
+    <div class="container">
+        <form action="">
+                <button class="price">All</button>
+                <div class="restaurants">
+                        <% for ( var i = 0; i < data.length; i++) { %>
+                            <br>
+                            <%= data[i].name %> |
+                            <%= data[i].comment %> |
+                            <%= data[i].rating %> 
+                        
+                            <br>
+                        <% } %>
+                        <br>
+                </div>
+                
+                <button class="location">Top 5 rated</button>
+                <br>
+                <button class="top10">Top 10</button>
+        </form>
+        
+
+    </div>
+    <script>
+//     var price = document.getElementsByClassName('price');
+// var location = document.getElementById('location');
+// var top = document.getElementById('top10');
+// var restaurants = document.getElementsByClassName('restaurants')[0];
+
+
+
+// // price.addEventListener("click", function(){
+// //     restaurants.classlist.add
+// //   });
+
+  
+
+
+// price.forEach(btn => {
+//     btn.addEventListener("click", e => {
+//         e.preventDefault()
+//         restaurants.style.display = "none";
+
+        
+//         // price[0].classList.add("active");
+        
+//     });
+// });
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet"  href="/style/style.css">
+</head>
+<body>
+
+    <div class="gridcontainer">
+        <div class="loginbox">
+            <div class="input">
+                    <% if (messages.error) { %>
+                        <%= messages.error %>
+                      <% } %>
+                <form action="/login" method="POST" autocomplete="off">
+                    <h1>Log in</h1>
+                    <input id="name" name="username" placeholder="Username" type="text" required>
+                    <br>
+                    <input id="password" name="password" placeholder="Password" type="password" required>
+                    <br>
+                    <button id="submit" type="submit">Log in</button>
+                    <p id="text">
+                            Don't have an account? Sign up
+                            <span><a href="/register">
+                                 here
+                            </a></span>
+                    </p>
+                    <p><a href="/main">main</a></p> 
+                </form>
+                
+               
+            </div>
+            
+        </div>
+    </div>
+    
+</body>
+</html>

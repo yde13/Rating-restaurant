@@ -1,64 +1,166 @@
 body{
-    background-image: linear-gradient(grey, white);
-    background-repeat: no-repeat;
+    background: rgb(17, 17, 17);
+    color: white;
     width: 100%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
 }
+
+/* hur man går box shadow på text? */
 
 .gridcontainer{
     width: 100%;
 }
 
 .loginbox{
-    padding: 0;
+  padding: 0;
   margin: 0;
   list-style: none;
   height: 400px;
-    width: 40%;
+  width: 40%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 10%;
-  border: 2px solid black;
+  border: 2px solid rgb(0, 68, 255);
   margin-left: 27%;
   border-radius: 10px;
+  box-shadow: 0px 0px 10px  rgb(0, 68, 255);    
+
+}
+
+.header{
+    margin-top: 150px;
+
 }
 
 .container{
     text-align: center;
+    margin-top: 0%;
     
 }
 
-.input{
-  
+
+.price{
+    margin-top: 35px;
+    width: 300px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 30px;
+    border: 2px solid rgb(0, 68, 255);
+    background: rgb(17, 17, 17);
+    color: white;
+    box-shadow: 0px 0px 10px  rgb(0, 68, 255);    
+
+}
+
+.location{
+    margin-top: 30px;
+    width: 300px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 30px;
+    border: 2px solid rgb(0, 68, 255);
+    background: rgb(17, 17, 17);
+    color: white;
+    box-shadow: 0px 0px 10px  rgb(0, 68, 255);    
+}
+
+.top10{
+    margin-top: 30px;
+    height: 50px;
+    width: 300px;
+    border-radius: 10px;
+    font-size: 30px;
+    border: 2px solid rgb(0, 68, 255);
+    background: rgb(17, 17, 17);
+    color: white;
+    box-shadow: 0px 0px 10px  rgb(0, 68, 255);    
+
+}
+
+.hidden{
+  display: none;
 }
 
 h1{
     text-align: center;
+    color: white;
+    text-shadow: -2px 0 20px rgb(0, 68, 255), 0 2px rgb(0, 68, 255), 2px 0 rgb(0, 68, 255), 0 -2px rgb(0, 68, 255);
 }
 
 #name{
     width: 300px;
-    
+    height: 20px;
     border-radius: 5px;
+    font-size: 15px;
+    border: 2px solid rgb(0, 68, 255);
+    background: rgb(17, 17, 17);
+    color: white; 
+    padding: 10px;
 }
 
 #password{
     margin-top: 40px;
-    width: 98%;
+    width: 93%;
     border-radius: 5px;
+    height: 20px;
+    font-size: 15px;
+    border: 2px solid rgb(0, 68, 255);
+    background: rgb(17, 17, 17);
+    color: white; 
+    padding: 10px;
 
 }
 
 #submit{
-    height: 20px;
-    width: 100px;
-    margin-left: 33%;
+    padding: 10px;
+    text-align: center; 
+        /* height: 30px; */
+        width: 150px;
     margin-top: 40px;
     border-radius: 5px;
+    margin-left: 26%;
+    border: 2px solid rgb(0, 68, 255);
+    background: rgb(17, 17, 17);
+    color: white;
+    box-shadow: 0px 0px 20px  rgb(0, 68, 255);
+    font-size: 20px;
+ 
+}
+
+#submit:hover{
+    cursor: pointer;
+    background: rgb(0, 68, 255);
+    color: rgb(17, 17, 17);
+    box-shadow: 0px 0px 80px  rgb(0, 68, 255);
+}
+
+.price:hover{
+    cursor: pointer;
+    background: rgb(0, 68, 255);
+    color: rgb(17, 17, 17);
+    box-shadow: 0px 0px 80px  rgb(0, 68, 255);
+
+}
+
+.location:hover{
+    cursor: pointer;
+    background: rgb(0, 68, 255);
+    color: rgb(17, 17, 17);
+    box-shadow: 0px 0px 80px  rgb(0, 68, 255);
+
+}
+
+.top10:hover{
+    cursor: pointer;
+    background: rgb(0, 68, 255);
+    color: rgb(17, 17, 17);
+    box-shadow: 0px 0px 80px  rgb(0, 68, 255);
 
 }
 
 #text{
+    margin-top: 40px;
     text-align: center;
 }
