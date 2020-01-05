@@ -41,7 +41,7 @@ body{
 }
 
 
-.price{
+.all{
     margin-top: 35px;
     width: 300px;
     height: 50px;
@@ -54,7 +54,7 @@ body{
 
 }
 
-.location{
+.top5{
     margin-top: 30px;
     width: 300px;
     height: 50px;
@@ -64,19 +64,6 @@ body{
     background: rgb(17, 17, 17);
     color: white;
     box-shadow: 0px 0px 10px  rgb(0, 68, 255);    
-}
-
-.top10{
-    margin-top: 30px;
-    height: 50px;
-    width: 300px;
-    border-radius: 10px;
-    font-size: 30px;
-    border: 2px solid rgb(0, 68, 255);
-    background: rgb(17, 17, 17);
-    color: white;
-    box-shadow: 0px 0px 10px  rgb(0, 68, 255);    
-
 }
 
 .hidden{
@@ -136,7 +123,7 @@ h1{
     box-shadow: 0px 0px 80px  rgb(0, 68, 255);
 }
 
-.price:hover{
+.all:hover, .top5:hover{
     cursor: pointer;
     background: rgb(0, 68, 255);
     color: rgb(17, 17, 17);
@@ -144,21 +131,20 @@ h1{
 
 }
 
-.location:hover{
-    cursor: pointer;
-    background: rgb(0, 68, 255);
-    color: rgb(17, 17, 17);
-    box-shadow: 0px 0px 80px  rgb(0, 68, 255);
-
+.all-cards{
+    height: 120px;
+    border: 1px solid rgb(0, 68, 255);
+    width: 50%;
+    margin-left: 25%;
 }
 
-.top10:hover{
-    cursor: pointer;
-    background: rgb(0, 68, 255);
-    color: rgb(17, 17, 17);
-    box-shadow: 0px 0px 80px  rgb(0, 68, 255);
-
+/* #restaurants{
+    display: none;
 }
+
+#toprated{
+    display: none;
+} */
 
 #text{
     margin-top: 40px;

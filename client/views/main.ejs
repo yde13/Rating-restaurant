@@ -1,55 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet"  href="/style/style.css">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+     <link rel="stylesheet" href="/style/style.css">
 </head>
+
 <body>
     <h3>Welcome </h3>
     <form action="/login" method="POST">
         <button type="submit">Log Out</button>
-      </form>
-    <h1>What are you looking for?</h1>
+    </form>
+    <br>
+    <form action="/add" method="POST">
+        <input type="text" name="name" id="" placeholder="name">
+        <br>
+        <input type="text" name="comment" placeholder="comment">
+        <br>
+        <input type="number" name="rating" placeholder="rating">
+        <br>
+        <button type="submit">Add</button>
+    </form>
+    <h1>Restaurants</h1>
 
     <div class="container">
         <form action="">
-                <button class="price">All</button>
-                <div class="restaurants">
-                        <% for ( var i = 0; i < data.length; i++) { %>
-                            <br>
-                            <%= data[i].name %> |
-                            <%= data[i].comment %> |
-                            <%= data[i].rating %> 
-                        
-                            <br>
-                        <% } %>
+            <button class="all">All</button>
+            
+            <div id="restaurants">
+                <% for ( var i = 0; i < data.length; i++) { %>
+                <br>
+                <div class="all-cards">
+                <%= data[i].name %> |
+                <br>
+                <%= data[i].comment %> |
+                <br>
+                <%= data[i].rating %>
+                <br>
+                <button>edit</button>
+                <button>delete</button>
+            </div>
+                <br>
+                <% } %>
+            </div>
+            <button class="top5">Top 5 rated</button>
+            <div id="toprated">
+                <% for ( var i = 0; i < result.length; i++) { %>
+                <br>
+                <div class="all-cards">
+                        <%= result[i].name %> |
+                        <%= result[i].comment %> |
+                        <%= result[i].rating %>
                         <br>
+                <button>edit</button>
+                <button>delete</button>
                 </div>
                 
-                <button class="location">Top 5 rated</button>
+
                 <br>
-                <button class="top10">Top 10</button>
+                <% } %>
+            </div>
         </form>
+
         
+
 
     </div>
     <script>
-//     var price = document.getElementsByClassName('price');
-// var location = document.getElementById('location');
-// var top = document.getElementById('top10');
-// var restaurants = document.getElementsByClassName('restaurants')[0];
+
+        // var all = document.querySelector('.all');
+        // var restaurant = document.getElementById('restaurants');
+        // var top = document.querySelector('.top5');
+        // var rated = document.getElementById('toprated');
 
 
+        // all.addEventListener("click", function (e) {
+        //     e.preventDefault();
 
-// // price.addEventListener("click", function(){
-// //     restaurants.classlist.add
-// //   });
+        //     if (restaurant.style.display !== 'none') {
+        //         restaurant.style.display = 'none';
+        //     }
+        //     else {
+        //         restaurant.style.display = 'block';
+        //     }
+        // });
 
-  
+        // top.addEventListener("click", function (e) {
+        //     e.preventDefault();
+
+        //     if (rated.style.display !== 'none') {
+        //         rated.style.display = 'none';
+        //     }
+        //     else {
+        //         rated.style.display = 'block';
+                
+        //     }
+        // });
+
+//   top.forEach(btn => {
+//     btn.addEventListener("click", (e) => {
+//         e.preventDefault();
+//     rated.style.display = 'none';
+//     });
+// });
 
 
 // price.forEach(btn => {
@@ -57,13 +117,14 @@
 //         e.preventDefault()
 //         restaurants.style.display = "none";
 
-        
+
 //         // price[0].classList.add("active");
-        
+
 //     });
 // });
 
 
     </script>
 </body>
+
 </html>
