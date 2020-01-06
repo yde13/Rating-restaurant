@@ -9,7 +9,7 @@ router.get("/", checkNotAuthenticated, (req, res, next) => {
     res.render("login");
 });
 
-router.post('/', checkNotAuthenticated ,passport.authenticate('local', {
+router.post('/', passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/login',
     failureFlash: true

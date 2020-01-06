@@ -38,12 +38,12 @@ router.post('/add', (req, res, next) => {
       });
 });
 
-router.put('/edit', (req, res) => {
+router.put('/edit/:id', (req, res) => {
     var sql = 'UPDATE `restaurants.restaurants` SET `name`=?,`comment`=?,`rating`=? where `idrestaurants`=?'
     var restaurants = [
         [req.body.name, req.body.comment, req.body.rating], 
     ];
-    connection.query(sql, [restaurants], (error, results, fields) => {
+    mysqlconnection.query(sql, [restaurants], (error, results, fields) => {
        if (error) throw error;
        res.end(JSON.stringify(results));
      });
@@ -51,13 +51,17 @@ router.put('/edit', (req, res) => {
 
 
 //rest api to delete record from mysql database
-router.delete('/delete', (req, res) => {
-    console.log(req.body);
-    var sql = 'DELETE FROM `restaurants.restaurants` WHERE `idrestaurants`=?';
-    connection.query(sql, [req.body.id], (error, results, fields) => {
-       if (error) throw error;
-       res.end('Record has been deleted!');
+router.delete('/delete/:id', (req, res) => {
+    console.log(req.params.id);
+    var sql = 'DELETE FROM `restaurants` WHERE `idrestaurants`=?';
+    mysqlConnection.query(sql, [req.params.id], (error, results, fields) => {
+       
+    //    res.redirect('/');
      });
+     res.json({
+         data : 'done'
+     })
+    
  });
  
 

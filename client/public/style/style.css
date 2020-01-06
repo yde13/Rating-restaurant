@@ -138,13 +138,13 @@ h1{
     margin-left: 25%;
 }
 
-/* #restaurants{
+.hidden{
     display: none;
 }
 
-#toprated{
+.edit-container{
     display: none;
-} */
+}
 
 #text{
     margin-top: 40px;

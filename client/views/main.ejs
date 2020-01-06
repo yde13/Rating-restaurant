@@ -11,6 +11,7 @@
      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
      <link rel="stylesheet" href="/style/style.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -31,7 +32,7 @@
     <h1>Restaurants</h1>
 
     <div class="container">
-        <form action="">
+        <form id="form-all" action="" method="POST">
             <button class="all">All</button>
             
             <div id="restaurants">
@@ -44,13 +45,23 @@
                 <br>
                 <%= data[i].rating %>
                 <br>
-                <button>edit</button>
-                <button>delete</button>
+                <button class="edit-btn" name="<%= data[i].idrestaurants %>">Edit</button>
+                <button class="delete-btn" name="<%= data[i].idrestaurants %>">Delete</button>
             </div>
                 <br>
+                <div class="edit-container">
+                        <form class="edit-form" action="" method="POST">
+                            <input type="text" value="<%= data[i].name %>">
+                            <input type="text" value="<%= data[i].comment %>">
+                            <input type="text" value="<%= data[i].rating %>">
+                            <br>
+                            <button class="cancel-btn">Cancle</button>
+                            <button class="save-btn" type="submit">Save</button>
+                        </form>
+                    </div>
                 <% } %>
             </div>
-            <button class="top5">Top 5 rated</button>
+            <!-- <button class="top5">Top 5 rated</button>
             <div id="toprated">
                 <% for ( var i = 0; i < result.length; i++) { %>
                 <br>
@@ -60,14 +71,19 @@
                         <%= result[i].rating %>
                         <br>
                 <button>edit</button>
-                <button>delete</button>
+                <form action="/delete">
+                    <button   >delete</button>
+
+                </form>
                 </div>
                 
 
                 <br>
                 <% } %>
-            </div>
+            </div> -->
         </form>
+
+        
 
         
 
@@ -125,6 +141,8 @@
 
 
     </script>
+    
+    <script src="/javascript/main.js" ></script>
 </body>
 
 </html>
