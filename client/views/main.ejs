@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-     <link rel="stylesheet" href="/style/style.css">
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/style/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -25,20 +25,34 @@
         <br>
         <input type="text" name="comment" placeholder="comment">
         <br>
-        <input type="number" name="rating" placeholder="rating">
+        <input type="number" name="rating" placeholder="rating" max="5">
         <br>
         <button type="submit">Add</button>
     </form>
+
+    <div class="edit-container">
+        <% for ( var i = 0; i < data.length; i++) { %>
+        <form id="<%= 'edit-form-' + data[i].idrestaurants %>"action="" method="POST" style="display: none;">
+                <input type="text" name="names" value="<%= data[i].name %>">
+                <input type="text" name="comments" value="<%= data[i].comment %>">
+                <input type="text" name="ratings" value="<%= data[i].rating %>">
+                <br>
+                <button class="cancel-btn">Cancle</button>
+                <button id="save-btn" name=''>Save</button>
+        </form>
+        <% } %>
+
+    </div>
     <h1>Restaurants</h1>
 
     <div class="container">
-        <form id="form-all" action="" method="POST">
-            <button class="all">All</button>
-            
-            <div id="restaurants">
-                <% for ( var i = 0; i < data.length; i++) { %>
-                <br>
-                <div class="all-cards">
+
+        <button class="all">All</button>
+
+        <div id="restaurants">
+            <% for ( var i = 0; i < data.length; i++) { %>
+            <br>
+            <div class="all-cards">
                 <%= data[i].name %> |
                 <br>
                 <%= data[i].comment %> |
@@ -48,20 +62,17 @@
                 <button class="edit-btn" name="<%= data[i].idrestaurants %>">Edit</button>
                 <button class="delete-btn" name="<%= data[i].idrestaurants %>">Delete</button>
             </div>
-                <br>
-                <div class="edit-container">
-                        <form class="edit-form" action="" method="POST">
-                            <input type="text" value="<%= data[i].name %>">
-                            <input type="text" value="<%= data[i].comment %>">
-                            <input type="text" value="<%= data[i].rating %>">
-                            <br>
-                            <button class="cancel-btn">Cancle</button>
-                            <button class="save-btn" type="submit">Save</button>
-                        </form>
-                    </div>
-                <% } %>
-            </div>
-            <!-- <button class="top5">Top 5 rated</button>
+            <br>
+
+
+
+            <% } %>
+        </div>
+
+
+
+
+        <!-- <button class="top5">Top 5 rated</button>
             <div id="toprated">
                 <% for ( var i = 0; i < result.length; i++) { %>
                 <br>
@@ -81,11 +92,11 @@
                 <br>
                 <% } %>
             </div> -->
-        </form>
 
-        
 
-        
+
+
+
 
 
     </div>
@@ -116,7 +127,7 @@
         //     }
         //     else {
         //         rated.style.display = 'block';
-                
+
         //     }
         // });
 
@@ -141,8 +152,8 @@
 
 
     </script>
-    
-    <script src="/javascript/main.js" ></script>
+
+    <script src="/javascript/main.js"></script>
 </body>
 
 </html>

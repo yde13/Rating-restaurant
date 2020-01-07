@@ -2,9 +2,9 @@ var deleteBtn = document.querySelectorAll('.delete-btn');
 var form_all = document.getElementById('form-all');
 var editBtn = document.querySelectorAll('.edit-btn');
 var edit = document.querySelector('.edit-container');
-var saveBtn = document.querySelector('.save-btn');
-var cancleBtn = document.querySelector('.cancle-btn');
-
+var saveBtn = document.getElementById('save-btn');
+var cancleBtn = document.querySelectorAll('.cancle-btn');
+//var editForm = document.getElementById('edit-form');
 
 deleteBtn.forEach(btn => {
     btn.addEventListener('click', (e) => {
@@ -21,10 +21,11 @@ deleteBtn.forEach(btn => {
 
 editBtn.forEach(btn => {
     btn.addEventListener('click', (e) => {
-        e.preventDefault();
         var id = e.target.attributes[1].value;
         console.log(id);
         edit.style.display = 'block';
+        document.querySelector(`#edit-form-${id}`).style.display = 'block';
+        document.querySelector(`#edit-form-${id}`).attributes[1].value = `/edit/${id}?_method=put`;
     })
 })
 
@@ -37,14 +38,12 @@ cancleBtn.forEach(btn => {
     })
 })
 
-saveBtn.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        var id = e.target.attributes[1].value;
-        console.log(id);
-        edit.style.display = 'none';
-    })
+saveBtn.addEventListener('click', () => {
+        
+        editForm.submit();
+
 })
+
 
 
 

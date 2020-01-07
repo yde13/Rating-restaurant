@@ -39,15 +39,22 @@ router.post('/add', (req, res, next) => {
 });
 
 router.put('/edit/:id', (req, res) => {
-    var sql = 'UPDATE `restaurants.restaurants` SET `name`=?,`comment`=?,`rating`=? where `idrestaurants`=?'
-    var restaurants = [
-        [req.body.name, req.body.comment, req.body.rating], 
-    ];
-    mysqlconnection.query(sql, [restaurants], (error, results, fields) => {
-       if (error) throw error;
-       res.end(JSON.stringify(results));
-     });
- });
+    var id = req.params.id;
+    mysqlConnection.query( `UPDATE restaurants.restaurants SET name=?, comment=?, rating=? where idrestaurants= ${id}`,
+    
+    
+        [req.body.names, req.body.comments, req.body.ratings], (err, res) => {
+            if (err) throw err;
+        })
+    res.redirect("/")
+});
+    
+//     mysqlConnection.query(sql, [restaurants], (error, results, fields) => {
+//         if (error) throw error;
+//        res.end(JSON.stringify(results));
+//      });
+//      res.redirect('/');
+//  });
 
 
 //rest api to delete record from mysql database

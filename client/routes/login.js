@@ -25,7 +25,8 @@ function checkNotAuthenticated(req, res, next) {
       return res.redirect('/')
     }
     next()
-  }
+}
+
 
 
 module.exports = router;
