@@ -4,7 +4,8 @@
   "description": "Project in course backend 1",
   "main": "index.js",
   "scripts": {
-    "client": "nodemon ./client/client.js"
+    "client": "nodemon ./client/client.js",
+    "start": "node client.js"
   },
   "dependencies": {
     "bcrypt": "^3.0.7",
