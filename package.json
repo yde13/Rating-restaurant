@@ -34,5 +34,8 @@
   "bugs": {
     "url": "https://github.com/yde13/Rating-restaurant/issues"
   },
-  "homepage": "https://github.com/yde13/Rating-restaurant#readme"
+  "engines":{
+    "node": "13.5.0"
+  },
+
 }
