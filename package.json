@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "client": "nodemon ./client/client.js",
-    "start": "node client.js"
+    "start": "node ./client/client.js"
   },
   "dependencies": {
     "bcrypt": "^3.0.7",
