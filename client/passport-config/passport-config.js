@@ -12,7 +12,7 @@ function initialize(passport, getUserByUsername, getUserById){
         let user;
         mysqlConnection.query('SELECT * FROM restaurants.users WHERE username = ?',[username], (error, rows, fields) => {
             user = rows[0];
-            
+
             if (user == null) {
                 console.log('no user')
                 return done(null, false, {message: 'No user with that username'});
@@ -32,6 +32,7 @@ function initialize(passport, getUserByUsername, getUserById){
                 return (error);
             }
         });
+        
     }
 
     passport.use(new localStrategy({usernameField: 'username'} , authenticateUser));
