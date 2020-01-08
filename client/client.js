@@ -16,16 +16,14 @@ const methodOverride = require('method-override');
 var db = require('./database/db');
 
 
-users = [];
 
 
 const initializePassport = require('./passport-config/passport-config');
 initializePassport(
     passport, 
-    username => users.find(user => user.username === username),
-    id => users.find(user => user.id === id)
+    username => user.find(user => user.username === username),
+    id => user.find(user => user.id === id)
 );
-
 
 
 
@@ -35,7 +33,7 @@ app.use(bodyParser.json())
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(flash())
+
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
@@ -46,6 +44,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(methodOverride('_method'));
+
+app.use(flash())
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

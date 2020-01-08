@@ -2,10 +2,8 @@ var express = require('express')
 var app = express()
 var router = express.Router()
 var bcrypt = require('bcrypt');
-const initializePassport = require('../passport-config/passport-config');
 const passport = require('passport');
 var db = require('../database/db');
-initializePassport(passport);
 
 
 router.get("/", checkNotAuthenticated, (req, res, next) => {
@@ -13,25 +11,33 @@ router.get("/", checkNotAuthenticated, (req, res, next) => {
 });
 
 router.post('/', checkNotAuthenticated, async (req, res, next) => {
+  const { username, password } = req.body;
+
+  if (!username || !password ) {
+    console.log('åhnej');
+
+    errors.push();
+  }
+  
   try {
 
-    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    const hashedPassword = await bcrypt.hash(password, 10);
 
     var sql = `INSERT INTO restaurants.users (username, password) VALUES ?`;
-    var values = [
-      [req.body.username, hashedPassword],
+    const values = [
+      [username, hashedPassword],
     ];
     db.query(sql, [values], (err, result) => {
-      if (err) throw err;
-      console.log("Number of records inserted: " + result.affectedRows);
-
+      if (err)  throw err;
     });
 
-    res.redirect('/login')
+    res.render('login', {
+      username: req.body.username,
+      password: hashedPassword,
+    })
   } catch{
     res.redirect('/register')
   }
-
 });
 
 function checkNotAuthenticated(req, res, next) {

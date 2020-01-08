@@ -5,20 +5,19 @@ const methodOverride = require('method-override');
 
 
 
-router.get("/", checkNotAuthenticated, (req, res, next) => {
-    res.render("login");
+router.get("/",  checkNotAuthenticated, (req, res, next) => {
+    res.render("login", {
+      
+    });
 });
 
-router.post('/', passport.authenticate('local', {
+router.post('/', checkNotAuthenticated, (req, res, next) => {
+  passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/login',
     failureFlash: true
-}));
-
-router.delete('/logout', (req, res) => {
-    req.logOut()
-    res.redirect('/login')
-  })
+  })(req, res, next);
+});
 
 function checkNotAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {

@@ -15,144 +15,64 @@
 </head>
 
 <body>
-    <h3>Welcome </h3>
-    <form action="/login" method="POST">
-        <button type="submit">Log Out</button>
-    </form>
-    <br>
-    <form action="/add" method="POST">
-        <input type="text" name="name" id="" placeholder="name">
-        <br>
-        <input type="text" name="comment" placeholder="comment">
-        <br>
-        <input type="number" name="rating" placeholder="rating" max="5">
-        <br>
-        <button type="submit">Add</button>
-    </form>
-
-    <div class="edit-container">
-        <% for ( var i = 0; i < data.length; i++) { %>
-        <form id="<%= 'edit-form-' + data[i].idrestaurants %>"action="" method="POST" style="display: none;">
-                <input type="text" name="names" value="<%= data[i].name %>">
-                <input type="text" name="comments" value="<%= data[i].comment %>">
-                <input type="text" name="ratings" value="<%= data[i].rating %>">
-                <br>
-                <button class="cancel-btn">Cancle</button>
-                <button id="save-btn" name=''>Save</button>
-        </form>
-        <% } %>
-
-    </div>
-    <h1>Restaurants</h1>
-
+    <h3>Welcome <%= username %> </h3>
+    <a class="btn btn-dark" href="/logout"> Logout</a>
+ 
     <div class="container">
+        <div class="header">
+                <h1 >Restaurants</h1>
 
-        <button class="all">All</button>
+                <button class="addRestaurant btn btn-primary" >Add Restaurant</button>
+        </div>
+           
+        
 
-        <div id="restaurants">
+            <div class="add-container card p-4" style="width: 18rem; height: 10rem; margin-left: 296px;">
+                    <form action="/add" method="POST">
+                        <input type="text" name="name" id="" placeholder="name" required >
+                        <br>
+                        <input type="text" name="comment" placeholder="comment" required >
+                        <br>
+                        <input type="number" name="rating" placeholder="rating" max="5" required >
+                        <br>
+                        <button type="submit">Add</button>
+                    </form>
+            </div>
+
+        <h1 class="all">All</h1>
+        <div class="edit-container card p-4" style="width: 18rem; height: 10rem; margin-left: 296px;">
+                <% for ( var i = 0; i < data.length; i++) { %>
+                <form id="<%= 'edit-form-' + data[i].idrestaurants %>"  action="" method="POST" style="display: none;">
+                        <input class="card-subtitle  text-muted " type="text" name="names" value="<%= data[i].name %>" required>
+                        <input class="card-subtitle text-muted " type="text" name="comments" value="<%= data[i].comment %>" required>
+                        <input class="card-subtitle  text-muted " type="number" name="ratings" value="<%= data[i].rating %>" max="5" required>
+                        <br>
+                        <button class="cancel-btn">Cancle</button>
+                        <button id="save-btn" name=''>Save</button>
+                </form>
+                <% } %>
+        
+            </div>
+        <div id="restaurants" class="row">
             <% for ( var i = 0; i < data.length; i++) { %>
             <br>
-            <div class="all-cards">
-                <%= data[i].name %> |
-                <br>
-                <%= data[i].comment %> |
-                <br>
-                <%= data[i].rating %>
-                <br>
-                <button class="edit-btn" name="<%= data[i].idrestaurants %>">Edit</button>
-                <button class="delete-btn" name="<%= data[i].idrestaurants %>">Delete</button>
+            <div class="">
+                    <div class="card m-2" style="width: 18rem; height: 10rem;">
+                            <div class="card-body">
+                              <h6 class="card-subtitle mb-2 text-muted col"><%= data[i].name %> </h6>
+                              <h6 class="card-subtitle mb-2 text-muted col"><%= data[i].comment %></h6>
+                              <h6 class="card-subtitle mb-2 text-muted col"><%= data[i].rating %></h6>
+            
+                              <button class="edit-btn btn btn-warning" name="<%= data[i].idrestaurants %>">Edit</button>
+                              <button class="delete-btn btn btn-danger" name="<%= data[i].idrestaurants %>">Delete</button>
+                            </div>
+                          </div>
+                
             </div>
             <br>
-
-
-
             <% } %>
         </div>
-
-
-
-
-        <!-- <button class="top5">Top 5 rated</button>
-            <div id="toprated">
-                <% for ( var i = 0; i < result.length; i++) { %>
-                <br>
-                <div class="all-cards">
-                        <%= result[i].name %> |
-                        <%= result[i].comment %> |
-                        <%= result[i].rating %>
-                        <br>
-                <button>edit</button>
-                <form action="/delete">
-                    <button   >delete</button>
-
-                </form>
-                </div>
-                
-
-                <br>
-                <% } %>
-            </div> -->
-
-
-
-
-
-
-
     </div>
-    <script>
-
-        // var all = document.querySelector('.all');
-        // var restaurant = document.getElementById('restaurants');
-        // var top = document.querySelector('.top5');
-        // var rated = document.getElementById('toprated');
-
-
-        // all.addEventListener("click", function (e) {
-        //     e.preventDefault();
-
-        //     if (restaurant.style.display !== 'none') {
-        //         restaurant.style.display = 'none';
-        //     }
-        //     else {
-        //         restaurant.style.display = 'block';
-        //     }
-        // });
-
-        // top.addEventListener("click", function (e) {
-        //     e.preventDefault();
-
-        //     if (rated.style.display !== 'none') {
-        //         rated.style.display = 'none';
-        //     }
-        //     else {
-        //         rated.style.display = 'block';
-
-        //     }
-        // });
-
-//   top.forEach(btn => {
-//     btn.addEventListener("click", (e) => {
-//         e.preventDefault();
-//     rated.style.display = 'none';
-//     });
-// });
-
-
-// price.forEach(btn => {
-//     btn.addEventListener("click", e => {
-//         e.preventDefault()
-//         restaurants.style.display = "none";
-
-
-//         // price[0].classList.add("active");
-
-//     });
-// });
-
-
-    </script>
-
     <script src="/javascript/main.js"></script>
 </body>
 

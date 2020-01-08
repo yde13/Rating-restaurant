@@ -1,33 +1,45 @@
 const localStrategy = require('passport-local').Strategy;
 var bcrypt = require('bcrypt');
+var mysqlConnection = require('../database/db');
+
+// var name = 'yde';
+// const user = mysqlConnection.query(`SELECT * FROM restaurants.users WHERE username = '${name}'`);
+// console.log(user)
 
 
 function initialize(passport, getUserByUsername, getUserById){
     const authenticateUser = async (username, password, done) => {
-        const user = 
-            getUserByUsername(username);
-          ;
-        if (user == null) {
-            return done(null, false, {message: 'No user with that username'});
-        }
-
-        try {
-            if (await bcrypt.compare(password, user.password)){
-                return done(null, user);
-            } else {
-                return done(null, false, {message: 'Password incorrect'});
+        let user;
+        mysqlConnection.query('SELECT * FROM restaurants.users WHERE username = ?',[username], (error, rows, fields) => {
+            user = rows[0];
+            
+            if (user == null) {
+                console.log('no user')
+                return done(null, false, {message: 'No user with that username'});
             }
+    
+            try {
+                bcrypt.compare(password, user.password, (err, auth) => {
+                    if (auth){
+                        return done(null, user);
+                    } else {
+                        return done(null, false, {message: 'Password incorrect'});
+                    }
+                })
 
-        } catch (error) {
-            return (error);
-        }
+    
+            } catch (error) {
+                return (error);
+            }
+        });
     }
 
-    passport.use(new localStrategy({usernameField: 'username', passReqToCallback : true } , authenticateUser));
-    passport.serializeUser((user, done) => done(null, user.id));
+    passport.use(new localStrategy({usernameField: 'username'} , authenticateUser));
+    passport.serializeUser((user, done) => done(null, user.idusers));
     passport.deserializeUser((id, done) => {
-       return done(null, getUserById(id));
+        mysqlConnection.query("select * from users where idusers = " + id, (err,rows) => {	
+			return done(err, rows[0]);
     });
-}
-
+})
+};
 module.exports = initialize;

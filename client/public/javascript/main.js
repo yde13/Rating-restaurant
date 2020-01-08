@@ -4,7 +4,26 @@ var editBtn = document.querySelectorAll('.edit-btn');
 var edit = document.querySelector('.edit-container');
 var saveBtn = document.getElementById('save-btn');
 var cancleBtn = document.querySelectorAll('.cancle-btn');
-//var editForm = document.getElementById('edit-form');
+// var cancleBtn2 = document.querySelectorAll('.cancle-btn2');
+
+var addContainer = document.querySelector('.add-container');
+var addBtn = document.querySelectorAll('.addRestaurant');
+
+
+
+// cancleBtn2.forEach(btn => {
+//     btn.addEventListener('click', (e) => {
+//         e.preventDefault();
+//         var id = e.target.attributes[1].value;
+//         addContainer.style.display = 'none';
+//     })
+// })
+
+addBtn.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        addContainer.style.display = 'block';
+    })
+})
 
 deleteBtn.forEach(btn => {
     btn.addEventListener('click', (e) => {
