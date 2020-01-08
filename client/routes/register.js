@@ -14,8 +14,6 @@ router.post('/', checkNotAuthenticated, async (req, res, next) => {
   const { username, password } = req.body;
 
   if (!username || !password ) {
-    console.log('åhnej');
-
     errors.push();
   }
   

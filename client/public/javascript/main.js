@@ -29,7 +29,7 @@ deleteBtn.forEach(btn => {
     btn.addEventListener('click', (e) => {
         var id = e.target.attributes[1].value;
         $.ajax({
-            url: 'https://rating-restaurant-nackademin.herokuapp.com/delete/' + id, 
+            url: 'http://localhost:3000/delete/' + id, 
             type: 'DELETE'
         }).done(function (data) {
             location.reload()

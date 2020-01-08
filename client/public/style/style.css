@@ -1,18 +1,17 @@
 body{
-    background: rgb(17, 17, 17);
+    background: #EDD4C7;
     color: white;
     width: 100%;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
+    font-family: 'Gelasio', serif;
 }
-
-/* hur man går box shadow på text? */
 
 .gridcontainer{
     width: 100%;
 }
 
 .loginbox{
+  background: white;
+  color: rgb(211, 187, 174);
   padding: 0;
   margin: 0;
   list-style: none;
@@ -22,16 +21,13 @@ body{
   align-items: center;
   justify-content: center;
   margin-top: 10%;
-  border: 2px solid rgb(0, 68, 255);
   margin-left: 27%;
   border-radius: 10px;
-  box-shadow: 0px 0px 10px  rgb(0, 68, 255);    
 
 }
 
 .header{
     margin-top: 150px;
-
 }
 
 .container{
@@ -40,17 +36,19 @@ body{
     margin-left: 15.5%;   
 }
 
-
 .all{
-    margin-left: 26%;
+    margin-left: 26.5%;
     margin-top: 35px;
     width: 18rem;
     height: 50px;
     border-radius: 10px;
     font-size: 30px;
-    background: rgb(17, 17, 17);
-    color: white;
+    background: white;
+    color: rgb(196, 170, 156);
+}
 
+.login{
+    color: rgb(211, 187, 174);
 }
 
 .hidden{
@@ -60,7 +58,6 @@ body{
 h1{
     text-align: center;
     color: white;
-    text-shadow: -2px 0 20px rgb(0, 68, 255), 0 2px rgb(0, 68, 255), 2px 0 rgb(0, 68, 255), 0 -2px rgb(0, 68, 255);
 }
 
 #name{
@@ -68,9 +65,9 @@ h1{
     height: 20px;
     border-radius: 5px;
     font-size: 15px;
-    border: 2px solid rgb(0, 68, 255);
-    background: rgb(17, 17, 17);
-    color: white; 
+    border: 2px solid rgb(211, 187, 174);
+    background: white;
+    color: rgb(17, 17, 17); 
     padding: 10px;
 }
 
@@ -80,11 +77,10 @@ h1{
     border-radius: 5px;
     height: 20px;
     font-size: 15px;
-    border: 2px solid rgb(0, 68, 255);
+    border: 2px solid rgb(211, 187, 174);
     background: rgb(17, 17, 17);
     color: white; 
     padding: 10px;
-
 }
 
 #submit{
@@ -94,35 +90,23 @@ h1{
     margin-top: 40px;
     border-radius: 5px;
     margin-left: 26%;
-    border: 2px solid rgb(0, 68, 255);
-    background: rgb(17, 17, 17);
+    border: 2px solid rgb(211, 187, 174);
+    background: rgb(211, 187, 174);
     color: white;
-    box-shadow: 0px 0px 20px  rgb(0, 68, 255);
     font-size: 20px;
- 
 }
 
 #submit:hover{
     cursor: pointer;
-    background: rgb(0, 68, 255);
+    background: rgb(211, 187, 174);
     color: rgb(17, 17, 17);
-    box-shadow: 0px 0px 80px  rgb(0, 68, 255);
+    box-shadow: 0px 0px 80px  rgb(211, 187, 174);
 }
-
-.all:hover{
-    cursor: pointer;
-    background: rgb(0, 68, 255);
-    color: rgb(17, 17, 17);
-    box-shadow: 0px 0px 80px  rgb(0, 68, 255);
-
-}
-
-
 
 .edit-container{
-        display: none;
-        margin-top: 20px;
-        text-align: center;
+    display: none;
+    margin-top: 20px;
+    text-align: center;
 }
 
 .header {
@@ -132,5 +116,14 @@ h1{
 .add-container{
     display: none;
     margin-top: 30px;
+}
+
+.restaurants{
+    margin-top: -50px;
+    margin-bottom: 70px;
+}
+
+.addRestaurant{
+    margin-bottom: 50px;
 }
 
