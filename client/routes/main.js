@@ -6,37 +6,50 @@ var mysqlConnection = require('../database/db');
 
 router.get("/", checkAuthenticated, (req, res, next) => {
     mysqlConnection.query('SELECT * FROM restaurants.restaurants ORDER BY name', (error, rows, fields) => {
-        mysqlConnection.query('SELECT * FROM restaurants.restaurants ORDER BY rating', (error, result, fields) => {
+        mysqlConnection.query('SELECT * FROM restaurants.reviews', (error, result, fields) => {
+            mysqlConnection.query('SELECT AVG(rating) FROM restaurants.reviews ', (error, avg, fields) => {
+
+            console.log(avg)
             if (!error) {
-                res.render("main", { data: rows, result: result, username: req.body.username });
+                res.render("main", { data: rows, review: result, avg: avg });
+                console.log()
             } else {
                 console.log(error);
             }
+        });
         });
     });
 
 });
 
 router.post('/add', (req, res, next) => {
-    var sql = `INSERT INTO restaurants.restaurants (name, comment, rating) VALUES ?`;
-    var restaurants = [
-        [req.body.name, req.body.comment, req.body.rating],
-    ];
+    // ta bort comment och rating, ändrar databas
+    var restaurants = { name: req.body.name, comment: req.body.comment, rating: req.body.rating };
+    var sql = `INSERT INTO restaurants.restaurants SET ?`;
 
     console.log(restaurants);
-    mysqlConnection.query(sql, [restaurants], (err, result) => {
+    mysqlConnection.query(sql, restaurants, (err, result) => {
         if (err) throw err;
-        console.log("Number of records inserted: " + result.affectedRows);
         res.redirect('/');
+    });
+
+});
+
+router.post("/review/:id", (req, res) => {
+    const newReview = { idrestaurants: req.params.id, comment: req.body.newComment, rating: req.body.newRating };
+    mysqlConnection.query('INSERT INTO restaurants.reviews SET ?', newReview, (err, rows) => {
+
+        if (err) throw err;
+        console.log(newReview);
+        res.redirect("/");
     });
 });
 
 router.put('/edit/:id', (req, res) => {
     var id = req.params.id;
-    mysqlConnection.query(`UPDATE restaurants.restaurants SET name=?, comment=?, rating=? where idrestaurants= ${id}`,
-
-
-        [req.body.names, req.body.comments, req.body.ratings], (err, res) => {
+    //ändra query så man editar i restaurants.reviews
+    mysqlConnection.query(`UPDATE restaurants.reviews SET comment=?, rating=? where idrestaurants= ${id}`,
+        [req.body.comments, req.body.ratings], (err, res) => {
             if (err) throw err;
         })
     res.redirect("/")

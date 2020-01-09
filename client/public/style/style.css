@@ -126,4 +126,10 @@ h1{
 .addRestaurant{
     margin-bottom: 50px;
 }
+.review-container{
+    display: none;
+}
+li, p, span {
+    
+}
 

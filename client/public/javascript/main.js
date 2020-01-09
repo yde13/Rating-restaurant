@@ -4,7 +4,11 @@ var editBtn = document.querySelectorAll('.edit-btn');
 var edit = document.querySelector('.edit-container');
 var saveBtn = document.getElementById('save-btn');
 var cancleBtn = document.querySelectorAll('.cancle-btn');
-// var cancleBtn2 = document.querySelectorAll('.cancle-btn2');
+
+var reviewForm = document.getElementById('review_form');
+var reviewBtn = document.querySelectorAll('.review-btn');
+var reviewContainer = document.querySelector('.review-container')
+
 
 var addContainer = document.querySelector('.add-container');
 var addBtn = document.querySelectorAll('.addRestaurant');
@@ -36,6 +40,21 @@ deleteBtn.forEach(btn => {
         })
         
     })
+})
+
+reviewBtn.forEach(btn =>{
+    console.log("Klickar")
+    btn.addEventListener("click",(e) =>{
+        let reviewid = e.target.attributes[1].value;
+        reviewContainer.style.display = "block";
+        console.log(reviewid);
+        reviewForm.attributes[1].value = `/review/${reviewid}`;
+
+      //  console.log(updateid);
+      // update_form.attributes[1].value = `/resturant/update/${updateid}?_method=put`;
+        
+    })
+
 })
 
 editBtn.forEach(btn => {
