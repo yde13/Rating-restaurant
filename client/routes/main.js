@@ -8,6 +8,7 @@ router.get("/", checkAuthenticated, (req, res, next) => {
     mysqlConnection.query('SELECT * FROM restaurants.restaurants ORDER BY name', (error, rows, fields) => {
         mysqlConnection.query('SELECT * FROM restaurants.reviews', (error, result, fields) => {
             mysqlConnection.query('SELECT AVG(rating) FROM restaurants.reviews ', (error, avg, fields) => {
+                //försöker fixa average av rating beroende på id, men hur? och sen skriva det på korten under restaurangens namn
 
             console.log(avg)
             if (!error) {
@@ -23,7 +24,6 @@ router.get("/", checkAuthenticated, (req, res, next) => {
 });
 
 router.post('/add', (req, res, next) => {
-    // ta bort comment och rating, ändrar databas
     var restaurants = { name: req.body.name, comment: req.body.comment, rating: req.body.rating };
     var sql = `INSERT INTO restaurants.restaurants SET ?`;
 
