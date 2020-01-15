@@ -10,7 +10,7 @@ var mysqlConnection = require('../database/db');
 function initialize(passport, getUserByUsername, getUserById){
     const authenticateUser = async (username, password, done) => {
         let user;
-        mysqlConnection.query('SELECT * FROM users WHERE username = ?',[username], (error, rows, fields) => {
+        mysqlConnection.query('SELECT * FROM philip.users WHERE username = ?',[username], (error, rows, fields) => {
             user = rows[0];
 
             if (user == null) {

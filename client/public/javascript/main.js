@@ -76,11 +76,10 @@ cancleBtn.forEach(btn => {
     })
 })
 
-saveBtn.addEventListener('click', () => {
-        
-        editForm.submit();
+// saveBtn.addEventListener('click', (e) => {
+//     editForm.submit();
 
-})
+// })
 
 
 

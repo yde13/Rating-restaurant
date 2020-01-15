@@ -21,7 +21,7 @@ router.post('/', checkNotAuthenticated, async (req, res, next) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    var sql = `INSERT INTO restaurants.users (username, password) VALUES ?`;
+    var sql = `INSERT INTO philip.users (username, password) VALUES ?`;
     const values = [
       [username, hashedPassword],
     ];
