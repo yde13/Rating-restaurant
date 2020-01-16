@@ -45,6 +45,7 @@ body{
     font-size: 30px;
     background: white;
     color: rgb(196, 170, 156);
+
 }
 
 .login{
@@ -129,7 +130,19 @@ h1{
 .review-container{
     display: none;
 }
-li, p, span {
-    
-}
 
+@media only screen and (max-width: 700px) {
+    .all {
+      margin-left: -2.5%;
+      
+    }
+
+    .loginbox{
+        width: 80%;
+        margin-left: 8%;
+    }
+
+    #name, #password{
+        width: 85%;
+    }
+}
